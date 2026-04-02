@@ -22,7 +22,7 @@ release-patch:
 
 _release:
 	@echo "Releasing $(VERSION) (was $(CURRENT_VERSION))"
-	@sed -i '' 's|<string>[0-9]*\.[0-9]*\.[0-9]*</string>|<string>'"$$(echo $(VERSION) | sed 's/v//')"'</string>|' NetNuke/Info.plist
+	@plutil -replace CFBundleShortVersionString -string "$$(echo $(VERSION) | sed 's/v//')" NetNuke/Info.plist
 	@git add NetNuke/Info.plist
 	@git commit -m "Bump version to $(VERSION)"
 	@git tag $(VERSION)
