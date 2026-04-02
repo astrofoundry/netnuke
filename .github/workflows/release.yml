@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          xcodebuild -scheme NetNuke -configuration Release \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            ONLY_ACTIVE_ARCH=NO \
+            build \
+            SYMROOT="$PWD/build"
+
+      - name: Install create-dmg
+        run: brew install create-dmg
+
+      - name: Create DMG
+        run: |
+          create-dmg \
+            --volname "NetNuke" \
+            --window-pos 200 120 \
+            --window-size 600 400 \
+            --icon-size 100 \
+            --icon "NetNuke.app" 150 190 \
+            --app-drop-link 450 190 \
+            --hide-extension "NetNuke.app" \
+            "NetNuke.dmg" \
+            "build/Release/NetNuke.app"
+
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: NetNuke.dmg

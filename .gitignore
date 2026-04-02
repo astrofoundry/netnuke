@@ -1,0 +1,21 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserdata
+xcuserdata/
+*.xcworkspace
+!NetNuke.xcodeproj/xcshareddata/
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Docs (local only)
+docs/
+
+# Build artifacts
+*.dmg
+*.app
+*.dSYM.zip
+*.dSYM
