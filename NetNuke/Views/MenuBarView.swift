@@ -23,6 +23,11 @@ struct MenuBarView: View {
 
             Divider()
 
+            Toggle("Launch at Login", isOn: Binding(
+                get: { viewModel.launchAtLogin },
+                set: { _ in viewModel.toggleLaunchAtLogin() }
+            ))
+
             Button("Quit") {
                 NSApplication.shared.terminate(nil)
             }

@@ -1,4 +1,5 @@
 import Observation
+import ServiceManagement
 
 @Observable
 @MainActor
@@ -6,9 +7,12 @@ final class NetworkViewModel {
     var isNetworkEnabled: Bool = true
     var isProcessing: Bool = false
     var errorMessage: String?
+    var launchAtLogin: Bool = false
 
     init() {
         refreshState()
+        launchAtLogin = SMAppService.mainApp.status == .enabled
+        enableLaunchAtLoginIfFirstLaunch()
     }
 
     func toggle() {
@@ -37,7 +41,28 @@ final class NetworkViewModel {
         isProcessing = false
     }
 
+    func toggleLaunchAtLogin() {
+        do {
+            if launchAtLogin {
+                try SMAppService.mainApp.unregister()
+            } else {
+                try SMAppService.mainApp.register()
+            }
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+        launchAtLogin = SMAppService.mainApp.status == .enabled
+    }
+
     private func refreshState() {
         isNetworkEnabled = !LaunchDaemonManager.isDaemonInstalled()
+    }
+
+    private func enableLaunchAtLoginIfFirstLaunch() {
+        let key = "hasLaunchedBefore"
+        guard !UserDefaults.standard.bool(forKey: key) else { return }
+        UserDefaults.standard.set(true, forKey: key)
+        try? SMAppService.mainApp.register()
+        launchAtLogin = SMAppService.mainApp.status == .enabled
     }
 }
