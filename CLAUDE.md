@@ -39,6 +39,18 @@ macOS menu bar utility (Swift 6 / SwiftUI) that toggles all network interfaces o
 xcodebuild -scheme NetNuke -configuration Release build
 ```
 
+## Releasing
+
+Use Make targets to bump version, tag, and push (triggers GitHub Actions to build DMG):
+
+```bash
+make release-patch   # v0.0.1 → v0.0.2
+make release-minor   # v0.0.2 → v0.1.0
+make release-major   # v0.1.0 → v1.0.0
+```
+
+This updates `CFBundleShortVersionString` in `Info.plist`, commits, tags, and pushes. The CI workflow builds the `.app`, packages a `.dmg`, and uploads it to GitHub Releases.
+
 ## System Paths
 
 - LaunchDaemon: `/Library/LaunchDaemons/com.netguard.killnet.plist`
