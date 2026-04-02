@@ -41,15 +41,23 @@ xcodebuild -scheme NetNuke -configuration Release build
 
 ## Releasing
 
-Use Make targets to bump version, tag, and push (triggers GitHub Actions to build DMG):
+**Every deployment MUST go through `make release-*`.** Never push tags manually or deploy without it.
+
+When the user asks to release, deploy, or ship — always run the appropriate make target after all code is committed and pushed:
 
 ```bash
-make release-patch   # v0.0.1 → v0.0.2
-make release-minor   # v0.0.2 → v0.1.0
-make release-major   # v0.1.0 → v1.0.0
+make release-patch   # v1.0.0 → v1.0.1
+make release-minor   # v1.0.1 → v1.1.0
+make release-major   # v1.1.0 → v2.0.0
 ```
 
-This updates `CFBundleShortVersionString` in `Info.plist`, commits, tags, and pushes. The CI workflow builds the `.app`, packages a `.dmg`, and uploads it to GitHub Releases.
+This updates `CFBundleShortVersionString` in `Info.plist`, commits, tags, pushes branch then tag separately (required for GitHub Actions to trigger). The CI workflow builds the `.app`, packages a versioned `.dmg` (`NetNuke-X.Y.Z.dmg`), and uploads it to GitHub Releases.
+
+**Checklist before releasing:**
+1. All code changes committed and pushed to `main`
+2. Build succeeds locally: `xcodebuild -scheme NetNuke -configuration Release build`
+3. Run `make release-{patch|minor|major}` (user specifies which)
+4. Verify CI passes: `gh run list --repo astrofoundry/netnuke --limit 1`
 
 ## System Paths
 
