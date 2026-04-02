@@ -23,6 +23,10 @@ struct MenuBarView: View {
 
             Divider()
 
+            Text("NetNuke \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
             Toggle("Launch at Login", isOn: Binding(
                 get: { viewModel.launchAtLogin },
                 set: { _ in viewModel.toggleLaunchAtLogin() }

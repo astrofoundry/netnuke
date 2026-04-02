@@ -29,18 +29,19 @@ jobs:
 
       - name: Create DMG
         run: |
+          VERSION="${GITHUB_REF_NAME#v}"
           create-dmg \
-            --volname "NetNuke" \
+            --volname "NetNuke $VERSION" \
             --window-pos 200 120 \
             --window-size 600 400 \
             --icon-size 100 \
             --icon "NetNuke.app" 150 190 \
             --app-drop-link 450 190 \
             --hide-extension "NetNuke.app" \
-            "NetNuke.dmg" \
+            "NetNuke-$VERSION.dmg" \
             "build/Release/NetNuke.app"
 
       - name: Upload to Release
         uses: softprops/action-gh-release@v2
         with:
-          files: NetNuke.dmg
+          files: NetNuke-*.dmg
