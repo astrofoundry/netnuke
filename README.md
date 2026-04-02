@@ -10,7 +10,11 @@ A macOS menu bar utility that toggles all network interfaces on/off. When off, n
 
 1. Download `NetNuke.dmg` from [Releases](https://github.com/astrofoundry/netnuke/releases)
 2. Drag `NetNuke.app` to Applications
-3. Right-click the app → **Open** (first launch only — bypasses Gatekeeper for unsigned apps)
+3. On first launch, macOS will block the app because it is unsigned. To allow it:
+   - Open **System Settings → Privacy & Security**
+   - Scroll down to find *"NetNuke" was blocked from use because it is not from an identified developer*
+   - Click **Open Anyway** and authenticate with your password
+4. After that, NetNuke will launch normally
 
 ## Usage
 
