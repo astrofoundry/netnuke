@@ -30,6 +30,8 @@ Click the shield icon in the menu bar:
 
 An admin password prompt appears on each toggle.
 
+**Launch at Login** is enabled by default — NetNuke will start automatically after reboot so you always have access to the toggle.
+
 ## How It Works
 
 - Discovers interfaces dynamically via `networksetup -listallnetworkservices`
