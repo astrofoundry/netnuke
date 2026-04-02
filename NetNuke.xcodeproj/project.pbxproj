@@ -225,8 +225,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = NetNuke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -243,8 +241,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = NetNuke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
