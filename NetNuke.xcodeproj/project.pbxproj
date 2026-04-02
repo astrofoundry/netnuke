@@ -14,6 +14,7 @@
 		B10000000000000000000005 /* PrivilegedExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000005 /* PrivilegedExecutor.swift */; };
 		B10000000000000000000006 /* LaunchDaemonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000006 /* LaunchDaemonManager.swift */; };
 		B10000000000000000000007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000008 /* Assets.xcassets */; };
+		B10000000000000000000008 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000000A /* AppIcon.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A10000000000000000000007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A10000000000000000000008 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A10000000000000000000009 /* NetNuke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetNuke.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1000000000000000000000A /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 				A10000000000000000000001 /* NetNukeApp.swift */,
 				A10000000000000000000007 /* Info.plist */,
 				A10000000000000000000008 /* Assets.xcassets */,
+				A1000000000000000000000A /* AppIcon.icns */,
 				C10000000000000000000003 /* Views */,
 				C10000000000000000000004 /* ViewModels */,
 				C10000000000000000000005 /* Services */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B10000000000000000000007 /* Assets.xcassets in Resources */,
+				B10000000000000000000008 /* AppIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +224,6 @@
 		010000000000000000000003 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
@@ -239,7 +242,6 @@
 		010000000000000000000004 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
