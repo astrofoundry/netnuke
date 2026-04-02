@@ -26,5 +26,6 @@ _release:
 	@git add NetNuke/Info.plist
 	@git commit -m "Bump version to $(VERSION)"
 	@git tag $(VERSION)
-	@git push origin main --tags
+	@git push origin main
+	@git push origin $(VERSION)
 	@echo "$(VERSION) pushed — GitHub Actions will build the DMG"
